@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://nameeo.github.io/2018/12/10/setup-hexo/</loc>
+    <loc>https://nameeo.github.io/2018/12/30/retrospect-2018/</loc>
     
-    <lastmod>2018-12-17T15:51:25.106Z</lastmod>
+    <lastmod>2018-12-30T13:03:04.854Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://nameeo.github.io/2018/11/29/hello-world/</loc>
     
-    <lastmod>2018-11-29T12:33:43.423Z</lastmod>
+    <lastmod>2018-12-29T18:19:29.263Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://nameeo.github.io/2018/12/10/setup-hexo/</loc>
+    
+    <lastmod>2018-12-22T12:29:01.177Z</lastmod>
     
   </url>
   
