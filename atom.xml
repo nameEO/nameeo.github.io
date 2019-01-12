@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://nameeo.github.io/"/>
-  <updated>2018-12-30T13:08:22.065Z</updated>
+  <updated>2019-01-12T16:54:36.124Z</updated>
   <id>https://nameeo.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Summernote 에디터 요약</title>
+    <link href="https://nameeo.github.io/2019/01/12/summernote-summary/"/>
+    <id>https://nameeo.github.io/2019/01/12/summernote-summary/</id>
+    <published>2019-01-12T14:11:38.000Z</published>
+    <updated>2019-01-12T16:54:36.124Z</updated>
+    
+    <content type="html"><![CDATA[<p>하던 일 중에 간단하게 글을 편집할 수 있는 에디터가 필요한 화면이 있어서 에디터를 찾다가 <a href="https://summernote.org/" target="_blank" rel="noopener">Summernote</a>를 발견하게 되었다.</p><blockquote><p>예전에 봤던 에디터에 대한 기억을 되살려 찾아갔더니 좀 오래되어 보여서 포기하기로 했다.</p><ul><li>Naver <a href="https://github.com/naver/smarteditor2" target="_blank" rel="noopener">SmartEditor2</a> - 3.0 버전은 서비스형</li><li>Daum <a href="https://github.com/kakao/DaumEditor" target="_blank" rel="noopener">DaumEditor</a> - DEPRECATED</li></ul></blockquote><h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><img src="/2019/01/12/summernote-summary/download-compiled.png" title="download_compiled"><p><a href="https://summernote.org/getting-started/" target="_blank" rel="noopener">Getting started</a> 페이지에서 <code>Download compiled</code>를 클릭해서 다운받은 후 프로젝트 적당한 곳에 압축을 풀고 배치한다.</p><p>사용할 페이지에 스크립트와 링크를 추가한다. <code>jQuery</code> 와 <code>Bootstrap 3</code>가 필요하다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- include libraries(jQuery, bootstrap) --&gt;</span><br><span class="line">&lt;link href=&quot;http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css&quot; rel=&quot;stylesheet&quot;&gt;</span><br><span class="line">&lt;script src=&quot;http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- include summernote css/js --&gt;</span><br><span class="line">&lt;link href=&quot;http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css&quot; rel=&quot;stylesheet&quot;&gt;</span><br><span class="line">&lt;script src=&quot;http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure><ul><li><code>Bootstrap 4</code>는 베타 버전으로 지원한다. 파일을 추가할 때 기존의 파일 대신 <code>-bs4</code>로 끝나는 파일을 사용하면 된다.</li><li><code>Bootstrap</code> 의존성이 없는 버전을 베타 버전으로 지원한다. <code>-lite</code>로 끝나는 파일이다.</li></ul><h4 id="언어변경"><a href="#언어변경" class="headerlink" title="언어변경"></a>언어변경</h4><p>에디터 언어를 변경할 수 있다. <code>lang</code>폴더에서 원하는 언어파일을 추가한다. 한국어로 세팅했다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- include summernote-ko-KR --&gt;</span><br><span class="line">&lt;script src=&quot;lang/summernote-ko-KR.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure><h2 id="사용"><a href="#사용" class="headerlink" title="사용"></a>사용</h2><p>이제 몇 줄만 쓰면 바로 에디터를 배치할 수 있다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;textarea id=&quot;summernote&quot;&gt;&lt;/textarea&gt;</span><br><span class="line"></span><br><span class="line">$(function() &#123;</span><br><span class="line">  $(&apos;#summernote&apos;).summernote(&#123;</span><br><span class="line">    height: 300,</span><br><span class="line">    lang: &apos;ko-KR&apos; // 언어 세팅</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>무조건 <code>textarea</code> 태그를 사용할 필요는 없지만 <code>textarea</code> 태그를 사용하면 <code>form</code> 태그 안에 배치했을 시 <strong>submit</strong> 할 때 에디터 내용이 같이 전송되는 것 같다.</p><blockquote><p>잠깐 찾아보니 에디터에서 편집할 때 원래 textarea를 숨겨놓고 내용을 똑같이 업데이트 하고 있다. (적용되어 있던 <code>display: none</code> 스타일을 제거해서 보이게 함)<br><img src="/2019/01/12/summernote-summary/editor-hide-textarea.png" title="editor-hide-textarea"></p></blockquote><p>에디터 내용을 읽거나 쓸 수 있다.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// get</span><br><span class="line">var markupStr = $(&apos;#summernote&apos;).summernote(&apos;code&apos;);</span><br><span class="line"></span><br><span class="line">// set</span><br><span class="line">var markupStr = &apos;hello world&apos;;</span><br><span class="line">$(&apos;#summernote&apos;).summernote(&apos;code&apos;, markupStr);</span><br><span class="line"></span><br><span class="line">// 페이지를 렌더링 할 때 textarea 태그에 값을 넣어서 바로 불러올 수도 있는 것 같다.</span><br><span class="line">// PHP코드라면...</span><br><span class="line">// &lt;textarea id=&quot;summernote&quot;&gt;&lt;?= $contents ?&gt;&lt;/textarea&gt;</span><br></pre></td></tr></table></figure><blockquote><p>기본 상태에서 이미지를 추가하면 <a href="https://en.wikipedia.org/wiki/Data_URI_scheme" target="_blank" rel="noopener">Data URI scheme</a>으로 저장되기 때문에 이 상태로 에디터를 실사용하기에는 무리가 있다. Data URI가 포함된 글 내용을 Summernote에 불러올 때 매우 느려진다. 웬만하면 따로 이미지 업로드 로직을 추가해서 쓰는게 좋을 것 같다.<br><img src="/2019/01/12/summernote-summary/data-uri.png" title="data-uri"></p></blockquote><h2 id="참고자료"><a href="#참고자료" class="headerlink" title="참고자료"></a>참고자료</h2><p><a href="http://son10001.blogspot.com/2017/05/c-webform-wysiwyg-editor-summernote.html" target="_blank" rel="noopener">C#, WebForm : 위지윅 에디터 (Wysiwyg Editor) 썸머노트(summernote)</a><br><a href="https://blog.naver.com/kim_sewoong/220762759924" target="_blank" rel="noopener">13. Summernote 사용법</a><br><a href="http://kimsg.tistory.com/237" target="_blank" rel="noopener">summernote 에디터 (사용법)</a><br><a href="http://html5around.com/wordpress/tutorials/summernote-tutorial/" target="_blank" rel="noopener">SUMMERNOTE 적용해보기</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;하던 일 중에 간단하게 글을 편집할 수 있는 에디터가 필요한 화면이 있어서 에디터를 찾다가 &lt;a href=&quot;https://summernote.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Summernote&lt;/a&gt;를 발견하게 
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>2018년 회고 비슷한 것</title>
